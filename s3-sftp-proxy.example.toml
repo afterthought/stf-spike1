@@ -1,0 +1,29 @@
+host_key_file = "./host_key"
+
+[buckets.test]
+endpoint = "http://nginx:9000"
+s3_force_path_style = true
+disable_ssl = true
+bucket = "stfbucket1"
+region = "us-east-1"
+max_object_size = 65536
+writable = true
+readable = true
+listable = true
+auth = "test"
+keyboard_interactive_auth = false
+
+[buckets.test.credentials]
+aws_access_key_id = "minio"
+aws_secret_access_key = "minio123"
+
+[auth.test]
+type = "inplace"
+
+[auth.test.users.user01]
+password = ""
+public_keys = """
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDEtbyz6AK3FotVyuDEzVJifM6LviVbHstAyglxN/A4GiLPr1ZC940rhPcBxTKxihEOmWTtNgWts4G7VkNcFkvmGgBp75wjOxPOL2nAe6VA6wfW0FFcuQF0tQkkja1RxU7/Fl3UhK21AIAzuikugfUxEcTGNBGt6o8WwlNbfxz3JAZnhc08RcBUuU6t1x/vPoLXt9qfMDREUEAhdhtrF6zyeOfBtAH9mRfd6ygBdpYUWJ3xEPSt+sF04mMNf90+IOhWsJ0DxfAf7HzPRcRpI5seW+siHDD+VYfzGvmP+mZMAw96yKR34wl/dmWpYKA8bXuAlbmVaL5YVE3X66xTCZdcLR5V7DJYPT7WOmdO5DecG9Tltpo/U1+YanhKr3t6DW+DmgNgqKhJBH6DshXPz3izEThJhJbybJwYTf9ry/DlFh316W6HAq5vvZTqxDdcYIvAdzyZlRZ7SOd4lOzHBOZsFnBL6eUsRAyEu4FhgeJu2YxE8g6dolDFw2FaSG4Mlc0= chuck@iMac.lime.local
+"""
+[auth.test.users.user02]
+password = "test"
